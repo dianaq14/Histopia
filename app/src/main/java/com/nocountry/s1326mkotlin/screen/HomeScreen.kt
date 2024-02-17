@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.nocountry.s1326mkotlin.R
 
-
 @Composable
 fun HomeScreen(navigateToLogin: () -> Unit) {
     Surface(color = Color(0xFF232023)) {
@@ -30,7 +29,7 @@ fun HomeScreen(navigateToLogin: () -> Unit) {
         ) {
             Image(
                 painter = painterResource(id = R.drawable.bienvenida_1),
-                contentDescription = "null",
+                contentDescription = null,
                 modifier = Modifier.size(150.dp)
             )
             Text(
@@ -39,15 +38,26 @@ fun HomeScreen(navigateToLogin: () -> Unit) {
                 fontSize = 70.sp,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.padding(vertical = 24.dp)
-                    //.border(1.dp, Color.Black, shape = CircleShape)
+                modifier = Modifier
+                    .padding(vertical = 24.dp)
                     .clickable { navigateToLogin() }
             )
             Image(
                 painter = painterResource(id = R.drawable.bienvenida_2),
-                contentDescription = "Click para iniciar sesión",
-                modifier = Modifier.size(450.dp)
+                contentDescription = null,
+                modifier = Modifier
+                    .size(450.dp)
                     .clickable { navigateToLogin() }
+            )
+            Spacer(modifier = Modifier.height(24.dp))
+            Image(
+                painter = painterResource(id = R.drawable.next),
+                contentDescription = "Login Button",
+                modifier = Modifier
+                    .size(200.dp)
+                    .clickable { navigateToLogin() }
+                    .padding(16.dp),
+                alignment = Alignment.BottomCenter
             )
         }
     }
