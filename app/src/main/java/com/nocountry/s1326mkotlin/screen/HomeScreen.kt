@@ -3,6 +3,8 @@ package com.nocountry.s1326mkotlin.screen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -15,10 +17,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.nocountry.s1326mkotlin.R
 
 @Composable
-fun HomeScreen(navigateToLogin: () -> Unit) {
+fun HomeScreen(navController: NavController) {
     Surface(color = Color(0xFF232023)) {
         Column(
             modifier = Modifier
@@ -40,31 +43,40 @@ fun HomeScreen(navigateToLogin: () -> Unit) {
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .padding(vertical = 24.dp)
-                    .clickable { navigateToLogin() }
+                    .clickable { }
             )
             Image(
                 painter = painterResource(id = R.drawable.bienvenida_2),
                 contentDescription = null,
                 modifier = Modifier
                     .size(450.dp)
-                    .clickable { navigateToLogin() }
+                    .clickable { }
             )
             Spacer(modifier = Modifier.height(24.dp))
-            Image(
-                painter = painterResource(id = R.drawable.next),
-                contentDescription = "Login Button",
-                modifier = Modifier
-                    .size(200.dp)
-                    .clickable { navigateToLogin() }
-                    .padding(16.dp),
-                alignment = Alignment.BottomCenter
-            )
+
+            BottomNavigation(
+                modifier = Modifier.fillMaxWidth(),
+                backgroundColor = Color(0xFFAA94F6)
+            ) {
+                Surface(
+                    color = Color(0xFEFFFE),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    BottomNavigationItem(
+                        selected = false,
+                        onClick = { navController.navigate("onboardingscreen") },
+                        icon = {
+                            Text(
+                                text = "Ingresar",
+                                color = Color.Black,
+                                modifier = Modifier.padding(8.dp)
+                            )
+                        }
+                    )
+                }
+            }
         }
     }
 }
 
-@Preview
-@Composable
-fun HomeScreenPreview() {
-    HomeScreen(navigateToLogin = {})
-}
+

@@ -1,3 +1,4 @@
+/*
 package com.nocountry.s1326mkotlin.screen
 
 import androidx.compose.foundation.Image
@@ -139,3 +140,4 @@ fun LoginScreen() {
 fun LoginScreenPreview() {
     LoginScreen()
 }
+*/
