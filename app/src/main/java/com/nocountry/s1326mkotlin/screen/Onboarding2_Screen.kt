@@ -58,13 +58,12 @@ fun Onboarding2_Screen(navController: NavController) {
         ) {
             Text(
                 text = "Elije tu aventura",
-                fontSize = 24.sp,
                 color = Color.Black,
+                fontSize = 24.sp,
                 fontFamily = FontFamily(Font(R.font.poppins_regular)),
                 modifier = Modifier
                     .padding(horizontal = 16.dp, vertical = 8.dp)
                     .padding(bottom = 8.dp),
-                textAlign = TextAlign.Center
             )
             Text(
                 text = "Selecciona un fascinante tema histórico que te intrigue y da inicio a tu emocionante aventura.",
@@ -85,17 +84,17 @@ fun Onboarding2_Screen(navController: NavController) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 TextButton(
-                    onClick = { navController.navigate("TemasScreen") },
+                    onClick = { navController.navigate("temas") },
                     modifier = Modifier
                         .weight(1f)
                         .padding(16.dp)
                         .background(color = Color.Transparent)
                 ) {
-                    Text(text = "Saltar", color = Color.Black, fontSize = 25.sp)
+                    Text(text = "Saltar", color = Color.Black, fontSize = 20.sp)
                 }
 
                 TextButton(
-                    onClick = { navController.navigate("On_Boarding_2_Screen") },
+                    onClick = { navController.navigate("onboarding3") },
                     modifier = Modifier
                         .weight(1f)
                         .padding(16.dp)

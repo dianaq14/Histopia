@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.nocountry.s1326mkotlin"
-        minSdk = 24
+        minSdk = 25
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -58,6 +58,8 @@ dependencies {
     implementation ("androidx.compose.ui:ui:1.0.5")
     implementation ("androidx.compose.material:material:1.0.5")
     implementation ("androidx.compose.ui:ui-tooling:1.0.0")
+//    implementation ("com.google.android.material:material3:1.2.0")
+
 
 
 
@@ -71,6 +73,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.navigation:navigation-runtime-ktx:2.7.7")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.wear.compose:compose-material3:1.0.0-alpha18")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

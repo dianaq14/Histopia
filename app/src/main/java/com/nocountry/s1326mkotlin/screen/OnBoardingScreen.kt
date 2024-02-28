@@ -90,13 +90,13 @@ fun OnboardingScreen(navController: NavController) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 TextButton(
-                    onClick = { navController.navigate("temas_screen") },
+                    onClick = { navController.navigate("temas") },
                     modifier = Modifier
                         .weight(1f)
                         .padding(16.dp)
                         .background(color = Color.Transparent)
                 ) {
-                    Text(text = "Saltar", color = Color.Black, fontSize = 25.sp)
+                    Text(text = "Saltar", color = Color.Black, fontSize = 20.sp)
                 }
 
                 TextButton(

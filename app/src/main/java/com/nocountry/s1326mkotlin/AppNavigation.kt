@@ -1,10 +1,10 @@
 package com.nocountry.s1326mkotlin
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.nocountry.s1326mkotlin.screen.EdadMediaScreen
 import com.nocountry.s1326mkotlin.screen.*
 
 @Composable
@@ -22,9 +22,20 @@ fun AppNavigation() {
         composable(Screen.Onboarding2_Screen.route) {
             Onboarding2_Screen(navController = navController)
         }
+        composable(Screen.Onboarding3.route) {
+            Onboarding3(navController = navController)
+        }
         composable(Screen.Temas.route) {
-            // TemasScreen
+            Temas(navController = navController)
+        }
+        composable(Screen.EdadMedia.route) {
+            EdadMediaScreen(navController = navController)
+        }
+        composable(Screen.TriviaEdadMedia.route){
+            TriviaEdadMedia(navController = navController)
+        }
+        composable(Screen.RespuestaCorrecta.route){
+            RespuestaCorrecta(navController= navController)
         }
     }
 }
-
