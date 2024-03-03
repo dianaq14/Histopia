@@ -2,7 +2,9 @@ package com.nocountry.s1326mkotlin.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -10,6 +12,7 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -65,7 +68,7 @@ fun OnboardingScreen(navController: NavController) {
                 text = "Bienvenido a Histopia",
                 fontSize = 24.sp,
                 color = Color.Black,
-                fontFamily = FontFamily(Font(R.font.poppins_regular)),
+                fontFamily = FontFamily(Font(R.font.poppins_bold)),
                 modifier = Modifier
                     .padding(horizontal = 16.dp, vertical = 8.dp)
                     .padding(bottom = 8.dp),
@@ -96,7 +99,12 @@ fun OnboardingScreen(navController: NavController) {
                         .padding(16.dp)
                         .background(color = Color.Transparent)
                 ) {
-                    Text(text = "Saltar", color = Color.Black, fontSize = 20.sp)
+                    Text(
+                        text = "Saltar",
+                        color = Color.Black,
+                        fontSize = 18.sp,
+                        fontFamily = FontFamily(Font(R.font.poppins_medium)),
+                    )
                 }
 
                 TextButton(
@@ -105,12 +113,19 @@ fun OnboardingScreen(navController: NavController) {
                         .weight(1f)
                         .padding(16.dp)
                 ) {
-                    Image(
-                        imageVector = ImageVector.vectorResource(id = R.drawable.ic_arrow),
-                        contentDescription = "Next",
-                        modifier = Modifier.size(50.dp)
-                    )
+
+                    Box(
+                        modifier = Modifier
+                            .size(50.dp)
+                    ) {
+                        Image(
+                            imageVector = ImageVector.vectorResource(id = R.drawable.ic_arrow),
+                            contentDescription = "Next",
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    }
                 }
+
             }
         }
     }

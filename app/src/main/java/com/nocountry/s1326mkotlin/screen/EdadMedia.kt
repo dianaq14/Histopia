@@ -7,8 +7,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonColors
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
@@ -108,7 +106,7 @@ fun EdadMediaScreen(navController: NavController) {
                     .fillMaxSize()
                     .size(450.dp)
                     .background(color = Color(0xFF1E1E1F))
-                    .clickable {navController.navigate("Trivia") }
+                    .clickable {navController.navigate("trivia") }
             )
         }
 
@@ -127,7 +125,12 @@ fun EdadMediaScreen(navController: NavController) {
                 },
                 selected = false,
                 onClick = { navController.navigate("home_screen") },
-                label = { androidx.compose.material3.Text("Home") }
+                label = {
+                    androidx.compose.material3.Text(
+                        "Home", fontSize = 12.sp,
+                        fontFamily = FontFamily(Font(R.font.poppins_medium))
+                    )
+                }
             )
             BottomNavigationItem(
                 icon = {
@@ -139,19 +142,29 @@ fun EdadMediaScreen(navController: NavController) {
                 },
                 selected = false,
                 onClick = { navController.navigate("temas") },
-                label = { androidx.compose.material3.Text("Temas") }
+                label = {
+                    androidx.compose.material3.Text(
+                        "Temas", fontSize = 12.sp,
+                        fontFamily = FontFamily(Font(R.font.poppins_medium))
+                    )
+                }
             )
             BottomNavigationItem(
                 icon = {
                     Image(
-                        painter = painterResource(id = R.drawable.logros),
+                        painter = painterResource(id = R.drawable.ranking),
                         contentDescription = null,
-                        modifier = Modifier.size(24.dp)
+                        modifier = Modifier.size(34.dp)
                     )
                 },
                 selected = false,
                 onClick = { navController.navigate("logros") },
-                label = { androidx.compose.material3.Text("Logros") }
+                label = {
+                    androidx.compose.material3.Text(
+                        "Logros", fontSize = 12.sp,
+                        fontFamily = FontFamily(Font(R.font.poppins_medium))
+                    )
+                }
             )
             BottomNavigationItem(
                 icon = {
@@ -163,7 +176,12 @@ fun EdadMediaScreen(navController: NavController) {
                 },
                 selected = false,
                 onClick = { navController.navigate("perfil") },
-                label = { androidx.compose.material3.Text("Usuario") }
+                label = {
+                    androidx.compose.material3.Text(
+                        "Perfil", fontSize = 12.sp,
+                        fontFamily = FontFamily(Font(R.font.poppins_medium))
+                    )
+                }
             )
         }
     }

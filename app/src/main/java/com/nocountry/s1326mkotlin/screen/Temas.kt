@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material3.*
@@ -27,41 +28,50 @@ fun Temas(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color= Color(0xFF1E1E1F))
-            .padding(16.dp),
+            .background(color = Color(0xFF1E1E1F)),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = "Selecciona un Tema",
             fontSize = 20.sp,
-            fontFamily = FontFamily(Font(R.font.poppins_regular)),
+            fontFamily = FontFamily(Font(R.font.poppins_bold)),
             color = Color.White,
             modifier = Modifier.padding(vertical = 16.dp)
         )
+        Spacer(modifier = Modifier.height(20.dp))
+
         TemaCard(
             tema = "Edad Media",
             image = R.drawable.edadmedia,
             onClick = { navController.navigate("EdadMedia") }
         )
+        Spacer(modifier = Modifier.height(20.dp))
+
         TemaCard(
             tema = "Edad Moderna",
             image = R.drawable.edadmoderna,
             onClick = { navController.navigate("EdadModerna") }
         )
+        Spacer(modifier = Modifier.height(20.dp))
+
         TemaCard(
             tema = "Guerras",
             image = R.drawable.guerras,
             onClick = { navController.navigate("Guerras") }
         )
+        Spacer(modifier = Modifier.height(20.dp))
+
         TemaCard(
             tema = "Revoluciones",
             image = R.drawable.revoluciones,
             onClick = { navController.navigate("Revoluciones") }
         )
         Spacer(modifier = Modifier.weight(1f))
+
         BottomNavigation(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth(),
             backgroundColor = Color(0xFFAA94F6)
         ) {
             BottomNavigationItem(
@@ -74,7 +84,12 @@ fun Temas(navController: NavController) {
                 },
                 selected = false,
                 onClick = { navController.navigate("home_screen") },
-                label = { Text("Home") }
+                label = {
+                    Text(
+                        "Home", fontSize = 12.sp,
+                        fontFamily = FontFamily(Font(R.font.poppins_medium))
+                    )
+                }
             )
             BottomNavigationItem(
                 icon = {
@@ -86,19 +101,29 @@ fun Temas(navController: NavController) {
                 },
                 selected = false,
                 onClick = { navController.navigate("temas") },
-                label = { Text("Temas") }
+                label = {
+                    Text(
+                        "Temas", fontSize = 12.sp,
+                        fontFamily = FontFamily(Font(R.font.poppins_medium))
+                    )
+                }
             )
             BottomNavigationItem(
                 icon = {
                     Image(
-                        painter = painterResource(id = R.drawable.logros),
+                        painter = painterResource(id = R.drawable.ranking),
                         contentDescription = null,
-                        modifier = Modifier.size(24.dp)
+                        modifier = Modifier.size(34.dp)
                     )
                 },
                 selected = false,
                 onClick = { navController.navigate("logros") },
-                label = { Text("Logros") }
+                label = {
+                    Text(
+                        "Logros", fontSize = 12.sp,
+                        fontFamily = FontFamily(Font(R.font.poppins_medium))
+                    )
+                }
             )
             BottomNavigationItem(
                 icon = {
@@ -110,7 +135,12 @@ fun Temas(navController: NavController) {
                 },
                 selected = false,
                 onClick = { navController.navigate("perfil") },
-                label = { Text("Usuario") }
+                label = {
+                    Text(
+                        "Perfil", fontSize = 12.sp,
+                        fontFamily = FontFamily(Font(R.font.poppins_medium))
+                    )
+                }
             )
         }
     }
@@ -118,35 +148,38 @@ fun Temas(navController: NavController) {
 
 @Composable
 fun TemaCard(tema: String, image: Int, onClick: () -> Unit) {
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .background(color = Color(0xFF3a7ff))
             .clickable(onClick = onClick)
-            .padding(vertical = 8.dp)
+            .padding(12.dp),
+        shape = RoundedCornerShape(12.dp)
 
     ) {
-        Column(
-            modifier = Modifier.padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(16.dp)
         ) {
             Image(
                 painter = painterResource(id = image),
                 contentDescription = null,
                 modifier = Modifier
-                    .size(80.dp)
+                    .size(100.dp)
+                    .padding(16.dp)
             )
             Text(
                 text = tema,
-                fontSize = 14.sp,
+                fontSize = 16.sp,
                 color = Color.Black,
-                fontFamily = FontFamily(Font(R.font.poppins_regular)),
-                modifier = Modifier.padding(vertical = 8.dp),
+                fontFamily = FontFamily(Font(R.font.poppins_medium)),
+                modifier = Modifier.padding(vertical = 12.dp),
                 textAlign = TextAlign.Center,
             )
         }
     }
 }
+
 
 @Preview
 @Composable

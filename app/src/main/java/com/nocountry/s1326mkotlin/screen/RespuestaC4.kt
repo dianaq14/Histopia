@@ -35,7 +35,7 @@ import androidx.navigation.compose.rememberNavController
 import com.nocountry.s1326mkotlin.R
 
 @Composable
-fun RespuestaCorrecta(navController: NavController) {
+fun RespuestaC4(navController: NavController) {
     var Siguiente by remember { mutableStateOf("") }
 
 
@@ -86,13 +86,13 @@ fun RespuestaCorrecta(navController: NavController) {
             )
         }
 
-        val botonsiguienteBackgroundColor = if (Siguiente== "Siguiente pregunta") Color(0xFFAB94F7) else Color(0xFFFFFDFE)
+        val botonsiguientepBackgroundColor = if (Siguiente== "Siguiente pregunta") Color(0xFFAB94F7) else Color(0xFFFFFDFE)
 
         Button(
-            onClick = { navController.navigate("trivia2")
+            onClick = { navController.navigate("trivia5")
             },
             colors = ButtonDefaults.buttonColors(
-                containerColor = botonsiguienteBackgroundColor,
+                containerColor = botonsiguientepBackgroundColor,
                 contentColor = Color.Black
             ),
             modifier = Modifier.padding(18.dp)
@@ -191,8 +191,8 @@ fun RespuestaCorrecta(navController: NavController) {
 }
 @Preview
 @Composable
-fun RespuestaCorrectaPreview() {
+fun RespuestaC4Preview() {
     val navController = rememberNavController()
-    RespuestaCorrecta(navController = navController)
+    RespuestaC4(navController = navController)
 
 }

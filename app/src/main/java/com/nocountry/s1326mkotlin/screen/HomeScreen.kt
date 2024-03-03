@@ -1,10 +1,14 @@
 package com.nocountry.s1326mkotlin.screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -64,17 +68,31 @@ fun HomeScreen(navController: NavController) {
                     color = Color(0xFEFFFE),
                     modifier = Modifier.fillMaxWidth()
                 ) {
+
+                    val colorbtn= Color(0xFEFFFE)
                     BottomNavigationItem(
                         selected = false,
                         onClick = { navController.navigate("onboardingscreen") },
                         icon = {
-                            Text(
-                                text = "Ingresar",
-                                color = Color.Black,
-                                modifier = Modifier.padding(8.dp)
-                            )
+                            Button(
+                                onClick = { navController.navigate("onboardingscreen") },
+                                colors = ButtonDefaults.buttonColors(
+                                    contentColor = Color.Black,
+                                    containerColor = Color(0xFFB5FFFDFE),
+                                ),
+                                modifier = Modifier
+                                    .padding(8.dp)
+                                    .border(width = 2.dp, color = Color.Black, shape = RoundedCornerShape(30.dp))
+                            ) {
+                                Text(
+                                    text = "Ingresar", color = Color.Black,
+                                    fontSize = 14.sp,
+                                    modifier = Modifier.padding(4.dp)
+                                )
+                            }
                         }
                     )
+
                 }
             }
         }

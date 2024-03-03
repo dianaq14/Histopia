@@ -31,11 +31,46 @@ fun AppNavigation() {
         composable(Screen.EdadMedia.route) {
             EdadMediaScreen(navController = navController)
         }
+
         composable(Screen.TriviaEdadMedia.route){
             TriviaEdadMedia(navController = navController)
+        }
+
+        composable(Screen.RespuestaIncorrecta.route + "/{triviaFallada}") { backStackEntry ->
+            val triviaFallada = backStackEntry.arguments?.getString("triviaFallada") ?: ""
+            RespuestaIncorrecta(navController = navController, triviaFallada = triviaFallada)
+        }
+
+        composable(Screen.Trivia2.route){
+            Trivia2(navController = navController)
+        }
+        composable(Screen.Trivia3.route){
+            Trivia3(navController = navController)
+        }
+        composable(Screen.Trivia4.route){
+            Trivia4(navController = navController)
+        }
+        composable(Screen.Trivia5.route){
+            Trivia5(navController = navController)
+        }
+        composable(Screen.NivelCompleto.route){
+            NivelCompleto(navController = navController)
         }
         composable(Screen.RespuestaCorrecta.route){
             RespuestaCorrecta(navController= navController)
         }
+        composable(Screen.RespuestaCorrecta2.route){
+            RespuestaCorrecta2(navController= navController)
+        }
+        composable(Screen.RespuestaC3.route){
+            RespuestaC3(navController = navController)
+        }
+        composable(Screen.RespuestaC4.route){
+            RespuestaC4(navController = navController)
+        }
+        composable(Screen.Logros.route){
+            Logros(navController= navController)
+        }
+
     }
 }

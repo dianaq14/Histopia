@@ -60,7 +60,7 @@ fun Onboarding2_Screen(navController: NavController) {
                 text = "Elije tu aventura",
                 color = Color.Black,
                 fontSize = 24.sp,
-                fontFamily = FontFamily(Font(R.font.poppins_regular)),
+                fontFamily = FontFamily(Font(R.font.poppins_bold)),
                 modifier = Modifier
                     .padding(horizontal = 16.dp, vertical = 8.dp)
                     .padding(bottom = 8.dp),
@@ -90,7 +90,12 @@ fun Onboarding2_Screen(navController: NavController) {
                         .padding(16.dp)
                         .background(color = Color.Transparent)
                 ) {
-                    Text(text = "Saltar", color = Color.Black, fontSize = 20.sp)
+                    Text(
+                        text = "Saltar",
+                        color = Color.Black,
+                        fontSize = 18.sp,
+                        fontFamily = FontFamily(Font(R.font.poppins_medium)),
+                    )
                 }
 
                 TextButton(

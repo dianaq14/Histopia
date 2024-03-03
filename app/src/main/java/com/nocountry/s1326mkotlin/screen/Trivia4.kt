@@ -30,9 +30,8 @@ import com.nocountry.s1326mkotlin.R
 
 
 @Composable
-fun TriviaEdadMedia(navController: NavController) {
+fun Trivia4(navController: NavController) {
 
-    val colorf = Color(0xFF1E1E1F)
     var respuestaSeleccionada by remember { mutableStateOf("") }
 
 
@@ -59,7 +58,7 @@ fun TriviaEdadMedia(navController: NavController) {
                 .background(color = Color(0xFF1E1E1F))
         ) {
             Image(
-                painter = painterResource(id = R.drawable.barra),
+                painter = painterResource(id = R.drawable.barra4),
                 contentDescription = "null",
                 modifier = Modifier
                     .align(Alignment.Center)
@@ -78,7 +77,7 @@ fun TriviaEdadMedia(navController: NavController) {
         ) {
             Column(
                 modifier = Modifier
-                    .padding(18.dp)
+                    .padding(8.dp)
             ) {
                 TopAppBar(
                     title = { Text("60seg") },
@@ -111,22 +110,22 @@ fun TriviaEdadMedia(navController: NavController) {
                 )
                 // Pregunta
                 Text(
-                    text = "¿Qué sistema social predominante existía durante la Edad Media, donde los campesinos trabajaban la tierra a cambio de protección y una porción de las cosechas?",
+                    text = "¿Qué avance tecnológico tuvo un impacto significativo en la agricultura durante la Edad Media??",
                     fontSize = 16.sp,
                     fontFamily = FontFamily(Font(R.font.poppins_regular)),
                     color = Color.Black,
-                    modifier = Modifier.padding(16.dp)
+                    modifier = Modifier.padding( 16.dp) .fillMaxWidth()
                 )
 
                 // Respuestas
                 val respuestas = listOf(
-                    "Feudalismo",
-                    "Capitalismo",
-                    "Socialismo",
-                    "Comunismo"
+                    "Imprenta",
+                    "Brújula",
+                    "Molino de viento",
+                    "Telescopio"
                 )
                 respuestas.forEach { respuesta ->
-                    RespuestaItem(
+                    RespuestaItemT4(
                         text = respuesta,
                         onClick = { respuestaSeleccionada = respuesta },
                         seleccionada = respuestaSeleccionada == respuesta
@@ -134,17 +133,14 @@ fun TriviaEdadMedia(navController: NavController) {
                 }
 
                 // Botón Enviar respuesta
-                val botonEnviarBackgroundColor =
-                    if (respuestaSeleccionada == "Feudalismo") Color(0xFFB1FCDC) else Color(
-                        0xFFFFFDFE
-                    )
+                val botonEnviarBackgroundColor = if (respuestaSeleccionada == "Molino de viento") Color(0xFFB1FCDC) else Color(0xFFFFFDFE)
 
                 TextButton(
                     onClick = {
-                        if (respuestaSeleccionada == "Feudalismo") {
-                            navController.navigate("correcto")
+                        if (respuestaSeleccionada == "Molino de viento") {
+                            navController.navigate("correcto4")
                         } else {
-                            respuestaSeleccionada == "Capitalismo" || respuestaSeleccionada == "Socialismo" || respuestaSeleccionada == "Comunismo"
+                            respuestaSeleccionada == "Imprenta" || respuestaSeleccionada == "Brújula" || respuestaSeleccionada == "Telescopio"
                             navController.navigate("incorrecto")
                         }
                     },
@@ -163,7 +159,6 @@ fun TriviaEdadMedia(navController: NavController) {
                 }
             }
         }
-
 
         // BottomAppBar
         BottomAppBar(
@@ -244,7 +239,7 @@ fun TriviaEdadMedia(navController: NavController) {
 }
 
 @Composable
-fun RespuestaItem(text: String, onClick: () -> Unit, seleccionada: Boolean) {
+fun RespuestaItemT4(text: String, onClick: () -> Unit, seleccionada: Boolean) {
     var selected by remember { mutableStateOf(false) }
 
     val backgroundColor = if (selected) Color(0xFFCF72C4) else Color(0xFFE79CDD)
@@ -271,8 +266,8 @@ fun RespuestaItem(text: String, onClick: () -> Unit, seleccionada: Boolean) {
 
 @Preview
 @Composable
-fun TriviaEdadMediaPreview() {
+fun Trivia4Preview() {
     val navController = rememberNavController()
 
-    TriviaEdadMedia(navController = navController)
+    Trivia4(navController = navController)
 }

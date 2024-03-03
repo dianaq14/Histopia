@@ -2,7 +2,9 @@ package com.nocountry.s1326mkotlin.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -65,7 +67,7 @@ fun Onboarding3(navController: NavController) {
                 text = "Comienza a Competir",
                 fontSize = 24.sp,
                 color = Color.Black,
-                fontFamily = FontFamily(Font(R.font.poppins_regular)),
+                fontFamily = FontFamily(Font(R.font.poppins_bold)),
                 modifier = Modifier
                     .padding(horizontal = 16.dp, vertical = 8.dp)
                     .padding(bottom = 8.dp),
@@ -96,16 +98,28 @@ fun Onboarding3(navController: NavController) {
                         .padding(16.dp)
                         .background(color = Color.Transparent)
                 ) {
-                    Text(text = "Saltar", color = Color.Black, fontSize = 20.sp)
+                    Text(
+                        text = "Saltar",
+                        color = Color.Black,
+                        fontSize = 18.sp,
+                        fontFamily = FontFamily(Font(R.font.poppins_medium)),
+                    )
                 }
-
-                OutlinedButton(
+                Button(
                     onClick = { navController.navigate("temas") },
+                    colors = ButtonDefaults.buttonColors(
+                        contentColor = Color.Black,
+                        containerColor = Color(0xFFE69CDC),
+                    ),
                     modifier = Modifier
-                        .weight(1f)
-                        .padding(16.dp)
+                        .padding(8.dp)
+                        .border(width = 2.dp, color = Color.Transparent, shape = RoundedCornerShape(30.dp))
                 ) {
-                    Text(text = "Comenzar", color = Color.Black, fontSize = 20.sp)
+                    Text(
+                        text = "Comenzar", color = Color.Black,
+                        fontSize = 16.sp,
+                        modifier = Modifier.padding(4.dp)
+                    )
                 }
             }
         }

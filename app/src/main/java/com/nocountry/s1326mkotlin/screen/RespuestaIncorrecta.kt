@@ -3,6 +3,7 @@ package com.nocountry.s1326mkotlin.screen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,21 +36,22 @@ import androidx.navigation.compose.rememberNavController
 import com.nocountry.s1326mkotlin.R
 
 @Composable
-fun RespuestaCorrecta(navController: NavController) {
-    var Siguiente by remember { mutableStateOf("") }
+fun RespuestaIncorrecta(navController: NavController, triviaFallada: String) {
 
-
+    var intentar by remember { mutableStateOf("") }
+    var finalizar by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color(0xFF1E1E1F)),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+            .background(color = Color(0xFF1E1E1F))
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
 
     ) {
         Text(
-            text = "¡Felicitaciones!",
+            text = "¡Oops! ",
             fontSize = 35.sp,
             color = Color.White,
             fontFamily = FontFamily(Font(R.font.poppins_bold)),
@@ -63,9 +65,9 @@ fun RespuestaCorrecta(navController: NavController) {
                 )
         )
         Text(
-            text = "Respuesta correcta",
+            text = "Respuesta Inccorrecta ",
             fontSize = 28.sp,
-            color = Color(0xFFB0FDDC),
+            color = Color(0xFFE69DDD),
             fontFamily = FontFamily(Font(R.font.poppins_bold)),
             modifier = Modifier
                 .padding(16.dp)
@@ -78,36 +80,70 @@ fun RespuestaCorrecta(navController: NavController) {
                 .background(color = Color(0xFF1E1E1F))
         ) {
             Image(
-                painter = painterResource(id = R.drawable.respuestacorrecta),
-                contentDescription = null,
+                painter = painterResource(id = R.drawable.incorrecto),
+                contentDescription = "null",
                 modifier = Modifier
                     .align(Alignment.Center)
-                    .size(500.dp)
+                    .size(400.dp)
             )
         }
 
-        val botonsiguienteBackgroundColor = if (Siguiente== "Siguiente pregunta") Color(0xFFAB94F7) else Color(0xFFFFFDFE)
+        val botonsiguienteBackgroundColor =
+            if (intentar == "Volverlo a intentar") Color(0xFFFFE37C) else Color(
+                0xFFFFFD93
+            )
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 16.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
 
-        Button(
-            onClick = { navController.navigate("trivia2")
-            },
-            colors = ButtonDefaults.buttonColors(
-                containerColor = botonsiguienteBackgroundColor,
-                contentColor = Color.Black
-            ),
-            modifier = Modifier.padding(18.dp)
         ) {
-            Text(
-                text = "Siguiente Pregunta",
-                fontSize = 20.sp,
-                fontFamily = FontFamily(Font(R.font.poppins_medium)),
-            )
+            Button(
+                onClick = { navController.navigate("trivia$triviaFallada") },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = botonsiguienteBackgroundColor,
+                    contentColor = Color.Black
+                ),
+                modifier = Modifier
+                    .padding(12.dp)
+                    .border(
+                        width = 2.dp,
+                        color = Color.Black,
+                        shape = RoundedCornerShape(30.dp)
+                    )
+                    .clickable(
+                        onClick = { navController.navigate("Trivia") },
+                    )
+            ) {
+                Text(
+                    text = "Volverlo a intentar",
+                    fontSize = 26.sp,
+                    fontFamily = FontFamily(Font(R.font.poppins_medium)),
+                )
+            }
+            Button(
+                onClick = { navController.navigate("home_Screen") },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFFFEFEFE),
+                    contentColor = Color.Black
+                ),
+                modifier = Modifier
+                    .padding(12.dp)
+                    .border(
+                        width = 2.dp,
+                        color = Color.Black,
+                        shape = RoundedCornerShape(30.dp)
+                    )
+            ) {
+                Text(
+                    text = "Finalizar",
+                    fontSize = 20.sp,
+                    fontFamily = FontFamily(Font(R.font.poppins_medium))
+                )
+            }
         }
-
-
-
-
-
 
         Box(
             modifier = Modifier.fillMaxSize()
@@ -189,10 +225,13 @@ fun RespuestaCorrecta(navController: NavController) {
         }
     }
 }
+
+
 @Preview
 @Composable
-fun RespuestaCorrectaPreview() {
+fun RespuestaIncorrectaPreview() {
     val navController = rememberNavController()
-    RespuestaCorrecta(navController = navController)
-
+    val triviaFallada by remember { mutableStateOf("trivia1") } // Valor inicial de la trivia fallada
+    RespuestaIncorrecta(navController = navController, triviaFallada = triviaFallada)
 }
+
