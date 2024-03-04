@@ -36,9 +36,8 @@ fun AppNavigation() {
             TriviaEdadMedia(navController = navController)
         }
 
-        composable(Screen.RespuestaIncorrecta.route + "/{triviaFallada}") { backStackEntry ->
-            val triviaFallada = backStackEntry.arguments?.getString("triviaFallada") ?: ""
-            RespuestaIncorrecta(navController = navController, triviaFallada = triviaFallada)
+        composable(Screen.RespuestaIncorrecta.route){
+            RespuestaIncorrecta(navController = navController )
         }
 
         composable(Screen.Trivia2.route){
@@ -53,6 +52,10 @@ fun AppNavigation() {
         composable(Screen.Trivia5.route){
             Trivia5(navController = navController)
         }
+        composable(Screen.Trivia6.route){
+            Trivia6(navController = navController)
+        }
+
         composable(Screen.NivelCompleto.route){
             NivelCompleto(navController = navController)
         }

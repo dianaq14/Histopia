@@ -36,7 +36,7 @@ import androidx.navigation.compose.rememberNavController
 import com.nocountry.s1326mkotlin.R
 
 @Composable
-fun RespuestaIncorrecta(navController: NavController, triviaFallada: String) {
+fun RespuestaIncorrecta(navController: NavController) {
 
     var intentar by remember { mutableStateOf("") }
     var finalizar by remember { mutableStateOf("") }
@@ -101,7 +101,7 @@ fun RespuestaIncorrecta(navController: NavController, triviaFallada: String) {
 
         ) {
             Button(
-                onClick = { navController.navigate("trivia$triviaFallada") },
+                onClick = { navController.navigate("trivia6") },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = botonsiguienteBackgroundColor,
                     contentColor = Color.Black
@@ -114,7 +114,7 @@ fun RespuestaIncorrecta(navController: NavController, triviaFallada: String) {
                         shape = RoundedCornerShape(30.dp)
                     )
                     .clickable(
-                        onClick = { navController.navigate("Trivia") },
+                        onClick = { navController.navigate("trivia6") },
                     )
             ) {
                 Text(
@@ -232,6 +232,6 @@ fun RespuestaIncorrecta(navController: NavController, triviaFallada: String) {
 fun RespuestaIncorrectaPreview() {
     val navController = rememberNavController()
     val triviaFallada by remember { mutableStateOf("trivia1") } // Valor inicial de la trivia fallada
-    RespuestaIncorrecta(navController = navController, triviaFallada = triviaFallada)
+    RespuestaIncorrecta(navController = navController)
 }
 

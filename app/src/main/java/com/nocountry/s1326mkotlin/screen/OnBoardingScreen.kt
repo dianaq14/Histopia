@@ -60,8 +60,8 @@ fun OnboardingScreen(navController: NavController) {
 
         Column(
             modifier = Modifier
-                .padding(vertical = 24.dp)
-                .background(myColor),
+                .background(myColor)
+                .padding( 0.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(

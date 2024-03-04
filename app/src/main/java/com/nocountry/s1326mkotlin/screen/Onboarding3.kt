@@ -59,9 +59,10 @@ fun Onboarding3(navController: NavController) {
 
         Column(
             modifier = Modifier
-                .padding(vertical = 24.dp)
+                .padding(0.dp)
                 .background(color_fondo),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+
         ) {
             Text(
                 text = "Comienza a Competir",
@@ -118,7 +119,7 @@ fun Onboarding3(navController: NavController) {
                     Text(
                         text = "Comenzar", color = Color.Black,
                         fontSize = 16.sp,
-                        modifier = Modifier.padding(4.dp)
+                        modifier = Modifier.padding(8.dp)
                     )
                 }
             }

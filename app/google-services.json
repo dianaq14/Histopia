@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "931674302232",
+    "project_id": "histopia-kotlin",
+    "storage_bucket": "histopia-kotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931674302232:android:237ce70eecd204b664a06d",
+        "android_client_info": {
+          "package_name": "com.nocountry.s1326mkotlin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXYvhJo5aOkn0xKEfBmqiJZmlqZa9QqTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
