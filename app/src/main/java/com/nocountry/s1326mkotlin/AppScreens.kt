@@ -20,5 +20,6 @@ sealed class Screen(val route: String) {
     object Trivia6 : Screen("trivia6")
     object NivelCompleto: Screen("completo")
     object Logros: Screen("logros")
+    object Perfil: Screen("perfil")
 
 }

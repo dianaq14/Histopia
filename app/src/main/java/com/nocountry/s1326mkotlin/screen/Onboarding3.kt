@@ -52,7 +52,7 @@ fun Onboarding3(navController: NavController) {
                 painter = painterResource(id = R.drawable.ob3),
                 contentDescription = "null",
                 modifier = Modifier
-                    .fillMaxSize()
+                        .fillMaxSize()
                     .background(color = Color(0xFF1E1E1F))
             )
         }

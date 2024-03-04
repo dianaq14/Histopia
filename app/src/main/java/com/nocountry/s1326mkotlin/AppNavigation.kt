@@ -74,6 +74,10 @@ fun AppNavigation() {
         composable(Screen.Logros.route){
             Logros(navController= navController)
         }
+        composable(Screen.Perfil.route){
+            Perfil(navController= navController)
+        }
+
 
     }
 }
